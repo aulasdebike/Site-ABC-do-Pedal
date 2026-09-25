@@ -1,0 +1,6 @@
+{
+  "name": "ABC do Pedal",
+  "description": "Escola profissional de bike especializada em ensinar adultos, idosos, jovens e crianças a andar de bicicleta do zero com segurança, acolhimento e metodologia estruturada.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

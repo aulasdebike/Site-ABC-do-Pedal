@@ -1,0 +1,84 @@
+{
+  "entities": {
+    "Booking": {
+      "title": "Booking",
+      "description": "Student lesson booking record for ABC do Pedal",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "productId": { "type": "string" },
+        "productName": { "type": "string" },
+        "price": { "type": "number" },
+        "student": { "type": "object" },
+        "slot": { "type": "object" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "preReservationExpiresAt": { "type": "string" },
+        "currentABCDE": { "type": "string" },
+        "milestones": { "type": "object" }
+      },
+      "required": ["id", "productId", "price", "student", "slot", "status", "createdAt"]
+    },
+    "Slot": {
+      "title": "Slot",
+      "description": "Calendar time slot available for booking",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "durationMinutes": { "type": "number" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "date", "time", "status"]
+    },
+    "WhatsAppTemplate": {
+      "title": "WhatsAppTemplate",
+      "description": "Configurable message templates for WhatsApp automated notifications",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "content": { "type": "string" }
+      },
+      "required": ["id", "title", "category", "content"]
+    },
+    "GalleryItem": {
+      "title": "GalleryItem",
+      "description": "Media item link for Galeria Viva (photo or YouTube video link)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string", "enum": ["photo", "video"] },
+        "url": { "type": "string" },
+        "youtubeId": { "type": "string" },
+        "title": { "type": "string" },
+        "aspectRatio": { "type": "string", "enum": ["normal", "tall", "wide", "large"] },
+        "hidden": { "type": "boolean" },
+        "order": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "type", "url", "hidden", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/bookings/{bookingId}": {
+      "schema": "Booking",
+      "description": "Collection of all lesson bookings"
+    },
+    "/slots/{slotId}": {
+      "schema": "Slot",
+      "description": "Collection of lesson time slots"
+    },
+    "/templates/{templateId}": {
+      "schema": "WhatsAppTemplate",
+      "description": "Collection of WhatsApp notification templates"
+    },
+    "/gallery/{galleryId}": {
+      "schema": "GalleryItem",
+      "description": "Collection of Galeria Viva photo and video links"
+    }
+  }
+}
